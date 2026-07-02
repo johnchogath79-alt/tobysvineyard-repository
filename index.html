@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toby's Wine Vineyard — Distinguished by Nature</title>
+  <meta name="description" content="Toby's Wine Vineyard — a boutique Australian vineyard established in 1997. Premium wines rooted in the sun-drenched terroir of Australia's finest wine country.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: '#a81f35',
+            cream: '#f9f5ef',
+            'cream-dark': '#f0e8dc',
+            vineyard: {
+              green: '#2d4a2e',
+              'green-light': '#4a6741',
+            },
+            amber: {
+              warm: '#c4956a',
+              gold: '#d4a853',
+            },
+          },
+          fontFamily: {
+            oregon: ['"Oregon LDO"', 'Georgia', 'serif'],
+            script: ['"On My Way"', 'cursive'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Local Custom Fonts Loading -->
+  <style>
+    /* Normal/Regular Variant */
+    @font-face {
+      font-family: 'Oregon LDO';
+      src: url('fonts/Oregon LDO.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    /* Black/Bold Variant mapped to bold/black weights */
+    @font-face {
+      font-family: 'Oregon LDO';
+      src: url('fonts/Oregon LDO Black.ttf') format('truetype');
+      font-weight: 700 900;
+      font-style: normal;
+    }
+
+    /* OpenType Script Font */
+    @font-face {
+      font-family: 'On My Way';
+      src: url('fonts/OnMyWay.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-cream antialiased">
+
+<!-- ── Sticky Navigation ── -->
+  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b-4 border-burgundy shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+
+        <!-- Logo: wine-glass SVG mark + live text wordmark -->
+        <a href="#home" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group" aria-label="Toby's Wine Vineyard — Home">
+          <img
+            src="images/logo-mark.svg"
+            alt=""
+            class="h-11 sm:h-14 w-auto shrink-0"
+            width="56"
+            height="42"
+            aria-hidden="true"
+          >
+          <div class="flex flex-col justify-center leading-none">
+            <span class="font-oregon text-gray-900 text-base sm:text-lg lg:text-xl tracking-tight whitespace-nowrap">
+              Toby's Wine
+            </span>
+            <span class="font-oregon text-burgundy text-[0.6rem] sm:text-xs lg:text-sm tracking-[0.35em] uppercase mt-0.5 whitespace-nowrap">
+              Vineyard
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
+          <li><a href="#home" class="text-vineyard-green hover:text-burgundy transition-colors duration-200">Home</a></li>
+          <li><a href="#about" class="text-vineyard-green hover:text-burgundy transition-colors duration-200">About Us</a></li>
+          <li><a href="#store" class="text-vineyard-green hover:text-burgundy transition-colors duration-200">Store</a></li>
+          <li><a href="#contact" class="text-vineyard-green hover:text-burgundy transition-colors duration-200">Contact Us</a></li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden p-2 rounded-md text-vineyard-green hover:text-burgundy focus:outline-none focus:ring-2 focus:ring-burgundy/40"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile links -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-burgundy/10">
+        <ul class="flex flex-col gap-1 pt-3 text-sm font-medium tracking-wide uppercase">
+          <li><a href="#home" class="mobile-nav-link block px-2 py-2 text-vineyard-green hover:text-burgundy hover:bg-cream-dark rounded transition-colors">Home</a></li>
+          <li><a href="#about" class="mobile-nav-link block px-2 py-2 text-vineyard-green hover:text-burgundy hover:bg-cream-dark rounded transition-colors">About Us</a></li>
+          <li><a href="#store" class="mobile-nav-link block px-2 py-2 text-vineyard-green hover:text-burgundy hover:bg-cream-dark rounded transition-colors">Store</a></li>
+          <li><a href="#contact" class="mobile-nav-link block px-2 py-2 text-vineyard-green hover:text-burgundy hover:bg-cream-dark rounded transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Hero / About Us ── -->
+    <section id="home" class="relative">
+      <!-- Background image -->
+      <div
+        class="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] bg-cover bg-center bg-no-repeat"
+        style="background-image: url('images/TWV_banner.jpg');"
+        role="img"
+        aria-label="Sun-drenched Australian vineyard at golden hour"
+      >
+        <!-- Gradient overlay for legibility -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
+
+        <!-- Hero content -->
+        <div class="relative z-10 flex items-center min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-20">
+            <div class="max-w-xl lg:max-w-2xl">
+
+              <!-- Semi-transparent wrapper -->
+              <div class="bg-black/35 backdrop-blur-[2px] rounded-lg px-6 sm:px-10 py-8 sm:py-10 border border-white/10 shadow-2xl">
+
+                <p class="font-oregon font-bold text-amber-gold text-lg sm:text-xl tracking-[0.3em] uppercase mb-2 drop-shadow-lg">
+                  Est. 1997
+                </p>
+
+                <h1 class="font-oregon text-white text-4xl sm:text-5xl lg:text-6xl leading-tight drop-shadow-lg">
+                  <span class="font-normal">Toby's Wine</span>
+                  <span class="block text-burgundy font-normal mt-1 tracking-widest text-7xl">VINEYARD</span>
+                </h1>
+
+                <!-- Recreated Asymmetric Brand Layout from image_668132.png -->
+                <div class="mt-6 inline-flex flex-col text-left">
+                  <div class="flex items-end gap-4 sm:gap-6">
+                    <p class="font-script text-white/95 text-2xl sm:text-3xl drop-shadow-md whitespace-nowrap">
+                      Distinguished by nature.
+                    </p>
+                    <img 
+                      src="images/AUS_lineart.svg" 
+                      alt="Australia Outline map" 
+                      class="w-14 sm:w-18 h-auto opacity-90 invert drop-shadow-md translate-y-2 select-none"
+                      aria-hidden="true"
+                    >
+                  </div>
+                  <p class="font-script text-white/95 text-2xl sm:text-3xl drop-shadow-md text-right self-end -mt-1 pr-3 sm:pr-5">
+                    Rooted in Australia.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us content block -->
+      <article id="about" class="bg-cream border-t-4 border-burgundy">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-center">
+          <h2 class="font-oregon font-black text-3xl sm:text-4xl text-vineyard-green mb-2">
+            About Us
+          </h2>
+          <div class="w-16 h-0.5 bg-burgundy mx-auto mb-8"></div>
+          <p class="text-base sm:text-lg leading-relaxed text-gray-700 max-w-3xl mx-auto">
+            Nestled among the rolling hills of Australia's premier wine country, Toby's Wine Vineyard has been crafting
+            exceptional, small-batch wines since 1997. Our boutique estate combines time-honoured winemaking traditions
+            with the unique character of sun-drenched Australian terroir, producing wines of remarkable depth, elegance,
+            and distinction. Every bottle reflects our unwavering commitment to quality, sustainability, and the natural
+            beauty that surrounds us.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ── YouTube Video ── -->
+    <section id="video" class="bg-cream-dark py-14 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="font-oregon font-black text-3xl sm:text-4xl text-vineyard-green">
+            Our Story
+          </h2>
+          <div class="w-16 h-0.5 bg-burgundy mx-auto mt-3"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Experience the passion and craftsmanship behind every vintage at Toby's Wine Vineyard.
+          </p>
+        </div>
+
+        <!-- Responsive 16:9 iframe wrapper -->
+        <div class="relative w-full overflow-hidden rounded-lg shadow-xl border border-burgundy/20" style="padding-bottom: 56.25%;">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Toby's Wine Vineyard — Our Story"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Store (placeholder) ── -->
+    <section id="store" class="bg-vineyard-green py-14 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-oregon font-black text-3xl sm:text-4xl text-cream mb-2">
+          Visit Our Store
+        </h2>
+        <div class="w-16 h-0.5 bg-amber-gold mx-auto mb-8"></div>
+        <p class="text-cream/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+          Discover our curated selection of estate-grown wines, from bold Shiraz to elegant Chardonnay.
+          Each release is crafted in limited quantities and available exclusively through our cellar door and online store.
+        </p>
+        <a
+          href="#contact"
+          class="inline-block px-8 py-3 bg-burgundy text-white text-sm font-medium tracking-widest uppercase rounded hover:bg-burgundy/90 transition-colors duration-200 shadow-lg"
+        >
+          Enquire Now
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Contact Us / Footer ── -->
+  <footer id="contact" class="bg-cream pt-14 sm:pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header: CONTACT US + burgundy line -->
+      <div class="flex items-center gap-4 sm:gap-6 mb-6">
+        <h2 class="font-oregon font-bold text-2xl sm:text-3xl text-gray-900 whitespace-nowrap tracking-wide">
+          CONTACT US
+        </h2>
+        <div class="flex-grow h-px bg-burgundy" aria-hidden="true"></div>
+      </div>
+
+      <!-- Footer columns -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 mb-14">
+
+        <!-- Address -->
+        <div>
+          <h3 class="font-oregon font-bold text-burgundy text-lg mb-3 uppercase tracking-wide">
+            Visit Us
+          </h3>
+          <address class="not-italic text-gray-600 leading-relaxed text-sm sm:text-base">
+            Toby's Wine Vineyard<br>
+            42 Barossa Valley Road<br>
+            Tanunda, SA 5352<br>
+            Australia
+          </address>
+        </div>
+
+        <!-- Opening hours -->
+        <div>
+          <h3 class="font-oregon font-bold text-burgundy text-lg mb-3 uppercase tracking-wide">
+            Opening Hours
+          </h3>
+          <ul class="text-gray-600 text-sm sm:text-base space-y-1">
+            <li>Monday – Friday: 10:00 am – 5:00 pm</li>
+            <li>Saturday: 10:00 am – 6:00 pm</li>
+            <li>Sunday: 11:00 am – 4:00 pm</li>
+            <li class="text-gray-500 pt-1">Public holidays: Closed</li>
+          </ul>
+        </div>
+
+        <!-- Social media -->
+        <div>
+          <h3 class="font-oregon font-bold text-burgundy text-lg mb-3 uppercase tracking-wide">
+            Follow Us
+          </h3>
+          <ul class="space-y-2 text-sm sm:text-base">
+            <li>
+              <a href="#" class="text-gray-600 hover:text-burgundy transition-colors duration-200 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-burgundy transition-colors duration-200 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-burgundy transition-colors duration-200 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X (Twitter)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div>
+          <h3 class="font-oregon font-bold text-burgundy text-lg mb-3 uppercase tracking-wide">
+            Get in Touch
+          </h3>
+          <ul class="text-gray-600 text-sm sm:text-base space-y-2">
+            <li>
+              <a href="tel:+61478667813" class="hover:text-burgundy transition-colors duration-200">
+                +61 (04) 7866 7813
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@tobyswinevineyard.com.au" class="hover:text-burgundy transition-colors duration-200">
+                info@tobyswinevineyard.com.au
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-burgundy/20 pt-6 text-center text-sm text-gray-500">
+        <p>&copy; 2026 Toby's Wine Vineyard. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
